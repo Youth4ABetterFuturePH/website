@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youth 4 A Better Future PH - Empowering Filipino Youth with Financial Literacy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --white: #FFFFFF;
+            --navy: #001F54;
+            --navy-light: #003d82;
+            --red: #CE1126;
+            --red-dark: #a00e1e;
+            --dark-bg: #0a0e1a;
+            --dark-card: #111827;
+            --dark-border: #1f2937;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-gradient: linear-gradient(135deg, #0a0e1a 0%, #111827 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--dark-bg);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        header {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--dark-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo-section:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo-img {
+            height: 65px;
+            width: auto;
+            filter: drop-shadow(0 2px 8px rgba(206, 17, 38, 0.3));
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--red), #ff4757);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mobile-menu-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, #0052a3 100%);
+            color: var(--white);
+            padding: 8rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(206, 17, 38, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-30px) translateX(20px); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 5.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -3px;
+            line-height: 1.05;
+            background: linear-gradient(135deg, #ffffff 0%, #ffd6d6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            font-weight: 400;
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 3rem;
+        }
+
+        .section-title {
+            font-size: 4.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.8;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--red), #ff4757);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(206, 17, 38, 0.2);
+            background: rgba(17, 24, 39, 0.8);
+            border-color: rgba(206, 17, 38, 0.3);
+        }
+
+        .card h3 {
+            color: var(--red);
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .card p, .card ul {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            opacity: 0.85;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(206, 17, 38, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1), height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(206, 17, 38, 0.5);
+        }
+
+        .cta-button:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            text-align: center;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(206, 17, 38, 0.1) 0%, rgba(255, 71, 87, 0.1) 100%);
+            border: 4px solid rgba(206, 17, 38, 0.3);
+            box-shadow: 0 8px 30px rgba(206, 17, 38, 0.2);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .team-member:hover .team-photo {
+            box-shadow: 0 12px 40px rgba(206, 17, 38, 0.3);
+            transform: scale(1.05);
+        }
+
+        .team-member h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+        }
+
+        .team-member p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .info-box {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 24px;
+            margin: 3rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .info-box:hover {
+            border-color: rgba(206, 17, 38, 0.3);
+            box-shadow: 0 12px 40px rgba(206, 17, 38, 0.15);
+        }
+
+        .info-box::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, var(--red), #ff4757);
+        }
+
+        .info-box h3 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 3.2rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+        }
+
+        .info-box p, .info-box ul {
+            line-height: 1.8;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-box li {
+            margin-bottom: 1.2rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .info-box li:before {
+            content: "●";
+            color: var(--red);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .info-box strong {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .module-card {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid var(--red);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .module-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 30px rgba(206, 17, 38, 0.2);
+            border-color: rgba(206, 17, 38, 0.3);
+        }
+
+        .module-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+            font-weight: 900;
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+        }
+
+        .module-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 3rem auto;
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(10, 14, 26, 0.5);
+            color: var(--text-primary);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--red);
+            box-shadow: 0 0 0 4px rgba(206, 17, 38, 0.2);
+            background: rgba(10, 14, 26, 0.7);
+        }
+
+        .form-group textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, rgba(206, 17, 38, 0.1) 0%, rgba(255, 71, 87, 0.05) 100%);
+            padding: 3rem;
+            border-radius: 24px;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(206, 17, 38, 0.2);
+        }
+
+        .contact-info h3 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            font-size: 3.2rem;
+            letter-spacing: -1.5px;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            opacity: 0.85;
+        }
+
+        .contact-info a {
+            color: var(--red);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact-info a:hover {
+            color: #ff4757;
+            text-decoration: underline;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 3rem;
+            text-align: center;
+            margin-top: 6rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .outcomes-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 2rem;
+        }
+
+        .outcomes-list li {
+            margin-bottom: 1rem;
+            padding-left: 2.5rem;
+            position: relative;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+        }
+
+        .outcomes-list li:before {
+            content: "✓";
+            color: var(--red);
+            position: absolute;
+            left: 0;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .mission-highlight {
+            background: linear-gradient(135deg, rgba(206, 17, 38, 0.15) 0%, rgba(255, 71, 87, 0.1) 100%);
+            padding: 3rem;
+            border-radius: 24px;
+            margin-bottom: 4rem;
+            text-align: center;
+            border: 1px solid rgba(206, 17, 38, 0.3);
+        }
+
+        .mission-highlight h3 {
+            color: var(--red);
+            margin-bottom: 1.5rem;
+            font-size: 3.8rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+        }
+
+        .mission-highlight p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            opacity: 0.85;
+        }
+
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card h3 {
+                font-size: 2rem;
+            }
+
+            .info-box h3 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(17, 24, 39, 0.98);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid var(--dark-border);
+                padding: 2rem;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 5rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+                letter-spacing: -1.5px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+                letter-spacing: -1px;
+            }
+
+            .card h3 {
+                font-size: 1.8rem;
+            }
+
+            .header-content {
+                padding: 1rem 1.5rem;
+            }
+
+            .contact-form,
+            .info-box {
+                padding: 2rem 1.5rem;
+            }
+
+            .info-box h3 {
+                font-size: 2rem;
+            }
+
+            .mission-highlight h3 {
+                font-size: 2.2rem;
+            }
+
+            .contact-info h3 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="https://i.postimg.cc/VvP8RQf8/logo.png" alt="Youth 4 A Better Future PH Logo" class="logo-img">
+                <div class="logo-text">Youth 4 A Better Future PH</div>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <nav id="nav">
+                <a href="#home" onclick="showSection('home')">Home</a>
+                <a href="#about" onclick="showSection('about')">About Us</a>
+                <a href="#work" onclick="showSection('work')">How We Work</a>
+                <a href="#involved" onclick="showSection('involved')">Get Involved</a>
+                <a href="#contact" onclick="showSection('contact')">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <div id="home" class="page-section">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Empowering the Next Generation</h1>
+                    <p>Building knowledge and confidence to forge brighter futures through financial literacy</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Our Goal</h2>
+                <p class="section-subtitle">Youth 4 A Better Future PH is a student-led nonprofit advancing financial literacy among Filipino children and teens. We design accessible lessons, deliver community workshops, and collaborate with schools and local organizations to close knowledge gaps and promote economic mobility.</p>
+
+                <div class="grid">
+                    <div class="card">
+                        <h3>What We Do</h3>
+                        <p>We create age-appropriate financial literacy curriculum and deliver engaging workshops across schools, community centers, and digital platforms. From budgeting basics to investing fundamentals, we equip young Filipinos with practical money management skills.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Why It Matters</h3>
+                        <p>Financial literacy is the foundation of economic mobility. Too many Filipino youth face critical life decisions without basic money knowledge, limiting their opportunities. Early financial education breaks cycles of poverty and builds generational wealth.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Who We Serve</h3>
+                        <p>We serve K-12 students across the Philippines, with special focus on under-resourced communities. Our programs reach learners in public schools, community organizations, churches, and youth groups throughout Metro Manila and beyond.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>How to Get Involved</h3>
+                        <p>Join our movement as a volunteer facilitator, partner organization, sponsor, or advocate. Whether you can teach a workshop, host an event, or share our mission on social media, every contribution creates impact.</p>
+                        <a href="#involved" onclick="showSection('involved')" class="cta-button" style="margin-top: 1.5rem;">Join Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div id="about" class="page-section hidden">
+            <div class="section">
+                <h2 class="section-title">About Us</h2>
+                
+                <div class="mission-highlight">
+                    <h3>Our Mission</h3>
+                    <p>We empower Filipino youth with practical financial education so they can make informed choices, build resilience, and unlock opportunity.</p>
+                </div>
+
+                <h3 style="text-align: center; margin-bottom: 3rem; color: var(--text-primary); font-size: 3.2rem; font-weight: 900; letter-spacing: -1.5px;">Our Team</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-photo">Add Photo</div>
+                        <h4>Ronnie Alava Jr.</h4>
+                        <p>Ronnie is a junior at Newton North High School. He is an aspiring finance professional, alongside being Co-Founder and CEO of KPSMK, he currently holds positions on PAMANA and the TAYO Youth Council among others.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo">Add Photo</div>
+                        <h4>Patrick Mendoza</h4>
+                        <p>Patrick is a freshman at Philips Academy Andover, he is the COO and engages in numerous clubs within his community. Upon graduation, he hopes to pursue biomedical engineering.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo">Add Photo</div>
+                        <h4>Chelsea Domingo</h4>
+                        <p>CDO and sophomore at Holbrook High School. Chelsea was elected to serve in her student government and is an active member of clubs. In the future, she desires to take on a pre-med track.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo">Add Photo</div>
+                        <h4>Faye Lorenzo</h4>
+                        <p>CMO; Junior at Shrewsbury High School, holding a position within her student body. Outside of classes, she is a consistent participant in her church community and town community. Succeeding higher education, Faye intends on working in healthcare.</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>Our Vision</h3>
+                    <p>A Philippines where every student—regardless of background—is equipped with the financial skills to thrive.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>Our Story</h3>
+                    <p>Youth 4 A Better Future PH began with a simple observation: too many teens face major life decisions without basic money knowledge. As students ourselves, we saw the consequences of limited access to quality financial education—especially in under-resourced communities. We organized, built lesson plans, and partnered with local groups to deliver workshops that meet learners where they are.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>What We Believe</h3>
+                    <ul>
+                        <li><strong>Knowledge is Power:</strong> Practical money skills drive long-term wellbeing.</li>
+                        <li><strong>Access Matters:</strong> Educational resources should be free, inclusive, and culturally relevant.</li>
+                        <li><strong>Community Works:</strong> Schools, families, and local organizations are all essential to the process.</li>
+                        <li><strong>Early Intervention:</strong> The earlier students learn, the higher their career trajectory.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- How We Work Section -->
+        <div id="work" class="page-section hidden">
+            <div class="section">
+                <h2 class="section-title">How We Work</h2>
+
+                <div class="grid">
+                    <div class="card">
+                        <h3>Curriculum</h3>
+                        <p>Age-appropriate lessons aligned to core financial competencies: earning, saving, budgeting, banking, credit, and investing.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Delivery</h3>
+                        <p>Workshops, after-school programs, and digital modules accessible on web and mobile platforms.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Partnerships</h3>
+                        <p>We collaborate with schools, churches, youth groups, and civic organizations to reach learners at scale.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Measurement</h3>
+                        <p>Pre/post assessments and feedback loops guide continuous improvement of our programs.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 5rem;">
+                    <h3 style="color: var(--text-primary); margin-bottom: 2rem; font-size: 3.5rem; text-align: center; font-weight: 900; letter-spacing: -1.5px;">Programs & Lessons</h3>
+                    
+                    <div class="info-box">
+                        <h3>Overview</h3>
+                        <p>We deliver structured financial literacy programs for K–12 learners, with flexible formats for classrooms, clubs, and community events.</p>
+                    </div>
+
+                    <h4 style="color: var(--text-primary); margin: 3rem 0 1.5rem; font-size: 2.8rem; font-weight: 900; letter-spacing: -1px;">Core Modules</h4>
+                    <div class="module-grid">
+                        <div class="module-card">
+                            <h4>Money Basics</h4>
+                            <p>Needs vs. wants, earning income, and how money moves.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Budgeting & Saving</h4>
+                            <p>Setting goals, tracking expenses, building savings habits.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Banking & Payments</h4>
+                            <p>Accounts, debit vs. credit, digital wallets, remittances.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Credit & Debt</h4>
+                            <p>How credit works, interest, responsible borrowing, avoiding predatory lending.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Investing Foundations</h4>
+                            <p>Compound growth, risk vs. return, diversification basics.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Financial Planning</h4>
+                            <p>Setting long-term goals, emergency funds, education pathways.</p>
+                        </div>
+                    </div>
+
+                    <h4 style="color: var(--text-primary); margin: 3rem 0 1.5rem; font-size: 2.8rem; font-weight: 900; letter-spacing: -1px;">Delivery Formats</h4>
+                    <div class="grid">
+                        <div class="card">
+                            <h3>School Workshops</h3>
+                            <p>60–90 minute sessions with interactive activities.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Community Pop-ups</h3>
+                            <p>Events hosted with local partners including churches, clubs, and youth organizations.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Digital Lessons</h3>
+                            <p>Short, mobile-friendly modules with quizzes and reflection prompts.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Parent & Educator Toolkits</h3>
+                            <p>Guides for reinforcing lessons at home and in class.</p>
+                        </div>
+                    </div>
+
+                    <h4 style="color: var(--text-primary); margin: 3rem 0 1.5rem; font-size: 2.8rem; font-weight: 900; letter-spacing: -1px;">Outcomes</h4>
+                    <ul class="outcomes-list">
+                        <li>Improved baseline knowledge and confidence</li>
+                        <li>Practical budgets and savings plans created by learners</li>
+                        <li>Increased awareness of safe financial products</li>
+                        <li>Stronger family conversations about money</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Get Involved Section -->
+        <div id="involved" class="page-section hidden">
+            <div class="section">
+                <h2 class="section-title">Get Involved</h2>
+                <p class="section-subtitle">Join our movement and make a difference in the lives of Filipino youth</p>
+
+                <div class="grid">
+                    <div class="card">
+                        <h3>Volunteer</h3>
+                        <p><strong>Facilitation:</strong> Support workshop delivery in schools and community centers.</p>
+                        <p><strong>Content:</strong> Help script, record, and edit lesson videos.</p>
+                        <p><strong>Translation:</strong> Assist with Filipino and regional language adaptations.</p>
+                        <a href="mailto:volunteer@y4abfph.org" class="cta-button" style="margin-top: 1.5rem;">Apply to Volunteer</a>
+                    </div>
+
+                    <div class="card">
+                        <h3>Partner With Us</h3>
+                        <p><strong>Schools & Youth Orgs:</strong> Bring our programs to your learners.</p>
+                        <p><strong>Community Groups & Churches:</strong> Host workshops and outreach events.</p>
+                        <p><strong>Media & PR Partners:</strong> Amplify awareness to reach more families.</p>
+                        <a href="mailto:partnerships@y4abfph.org" class="cta-button" style="margin-top: 1.5rem;">Start a Partnership</a>
+                    </div>
+
+                    <div class="card">
+                        <h3>Fundraise & Sponsor</h3>
+                        <p><strong>Event Sponsorships:</strong> Support workshops, materials, and technology.</p>
+                        <p><strong>Program Grants:</strong> Fund curriculum development and regional expansion.</p>
+                        <p><strong>Community Fundraisers:</strong> Organize local events to sustain ongoing programs.</p>
+                        <a href="mailto:info@y4abfph.org" class="cta-button" style="margin-top: 1.5rem;">Become a Sponsor</a>
+                    </div>
+
+                    <div class="card">
+                        <h3>Spread the Word</h3>
+                        <p>Follow us on social media, share our posts, and invite your network to join the movement.</p>
+                        <div style="margin-top: 1.5rem;">
+                            <p style="margin-bottom: 1rem;"><strong>Connect with us:</strong></p>
+                            <div style="display: flex; gap: 1.5rem; justify-content: center; margin-top: 1.5rem;">
+                                <a href="https://www.linkedin.com/company/youth-4-a-better-future-ph/?viewAsMember=true" target="_blank" rel="noopener noreferrer" style="color: var(--red); transition: all 0.3s ease; transform: scale(1);" onmouseover="this.style.transform='scale(1.2)'; this.style.color='#0077b5'" onmouseout="this.style.transform='scale(1)'; this.style.color='var(--red)'">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                </a>
+                                <a href="https://www.instagram.com/kpsmk_ph?igsh=eWQwMW5hZ3Ztcjhs&utm_source=qr" target="_blank" rel="noopener noreferrer" style="color: var(--red); transition: all 0.3s ease; transform: scale(1);" onmouseover="this.style.transform='scale(1.2)'; this.style.color='#E4405F'" onmouseout="this.style.transform='scale(1)'; this.style.color='var(--red)'">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    </svg>
+                                </a>
+                                <a href="https://www.tiktok.com/@kpsmk25?_r=1&_t=ZS-93NtLCMMH3d" target="_blank" rel="noopener noreferrer" style="color: var(--red); transition: all 0.3s ease; transform: scale(1);" onmouseover="this.style.transform='scale(1.2)'; this.style.color='#000000'" onmouseout="this.style.transform='scale(1)'; this.style.color='var(--red)'">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contact" class="page-section hidden">
+            <div class="section">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">We'd love to hear from you</p>
+
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p><strong>Email:</strong> <a href="mailto:kpsmk25@gmail.com">kpsmk25@gmail.com</a></p>
+                </div>
+
+                <div class="contact-form">
+                    <h3 style="text-align: center; margin-bottom: 2rem; color: var(--text-primary); font-weight: 900; font-size: 3.2rem; letter-spacing: -1.5px;">Send Us a Message</h3>
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="organization">Organization (optional)</label>
+                            <input type="text" id="organization">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p style="font-size: 1.05rem;">&copy; 2025 Youth 4 A Better Future PH</p>
+        <p style="margin-top: 0.5rem; opacity: 0.9;">Empowering the next generation with the knowledge and confidence to forge brighter futures</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+            
+            const nav = document.getElementById('nav');
+            nav.classList.remove('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMenu() {
+            const nav = document.getElementById('nav');
+            nav.classList.toggle('active');
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            event.target.reset();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
