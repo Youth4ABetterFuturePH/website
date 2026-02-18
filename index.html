@@ -241,6 +241,7 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
+            align-items: end;
         }
 
         .card {
@@ -269,6 +270,18 @@
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        .card.blue-card::before {
+            background: linear-gradient(90deg, #0038A8, #0052cc);
+        }
+
+        .card.yellow-card::before {
+            background: linear-gradient(90deg, #FCD116, #ffd700);
+        }
+
+        .card.white-card::before {
+            background: linear-gradient(90deg, var(--white), #f0f0f0);
+        }
+
         .card:hover::before {
             transform: scaleX(1);
         }
@@ -280,6 +293,21 @@
             border-color: rgba(206, 17, 38, 0.3);
         }
 
+        .card.blue-card:hover {
+            box-shadow: 0 20px 60px rgba(0, 56, 168, 0.3);
+            border-color: rgba(0, 56, 168, 0.5);
+        }
+
+        .card.yellow-card:hover {
+            box-shadow: 0 20px 60px rgba(252, 209, 22, 0.3);
+            border-color: rgba(252, 209, 22, 0.5);
+        }
+
+        .card.white-card:hover {
+            box-shadow: 0 20px 60px rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
         .card h3 {
             color: var(--red);
             margin-bottom: 1rem;
@@ -288,11 +316,114 @@
             letter-spacing: -1px;
         }
 
+        .card.blue-card h3 {
+            color: #0038A8;
+        }
+
+        .card.blue-card:hover h3 {
+            color: #0038A8;
+        }
+
+        .card.yellow-card h3 {
+            color: #FCD116;
+        }
+
+        .card.yellow-card:hover h3 {
+            color: #FCD116;
+        }
+
+        .card.white-card h3 {
+            color: var(--white);
+        }
+
+        .card.white-card:hover h3 {
+            color: var(--white);
+        }
+
+        .card.white-card .cta-button {
+            background: linear-gradient(135deg, var(--white) 0%, #f0f0f0 100%);
+            color: var(--navy);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+        }
+
+        .card.white-card .cta-button:hover {
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.3);
+        }
+
         .card p, .card ul {
             color: var(--text-secondary);
             font-size: 0.9rem;
             line-height: 1.7;
             opacity: 0.85;
+        }
+
+        #involved .card h3 {
+            color: var(--white);
+        }
+
+        #involved .card .cta-button {
+            background: linear-gradient(135deg, var(--white) 0%, #f0f0f0 100%);
+            color: var(--navy);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+        }
+
+        #involved .card .cta-button:hover {
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.3);
+        }
+
+        #involved .card:hover {
+            box-shadow: 0 20px 60px rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        #involved .card::before {
+            background: linear-gradient(90deg, var(--white), #f0f0f0);
+        }
+
+        .social-icon {
+            color: var(--white);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(1);
+            display: inline-block;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .social-icon[data-platform="linkedin"]:hover {
+            color: #0077b5;
+        }
+
+        .social-icon[data-platform="instagram"]:hover {
+            color: transparent;
+        }
+
+        .social-icon[data-platform="instagram"] .instagram-path {
+            fill: currentColor;
+            transition: fill 0.3s ease;
+        }
+
+        .social-icon[data-platform="instagram"]:hover .instagram-path {
+            fill: url(#instagram-gradient);
+        }
+
+        .social-icon[data-platform="tiktok"] .tiktok-red {
+            fill: var(--white);
+            transition: fill 0.3s ease;
+        }
+
+        .social-icon[data-platform="tiktok"] .tiktok-cyan {
+            fill: var(--white);
+            transition: fill 0.3s ease;
+        }
+
+        .social-icon[data-platform="tiktok"]:hover .tiktok-red {
+            fill: #FF004F;
+        }
+
+        .social-icon[data-platform="tiktok"]:hover .tiktok-cyan {
+            fill: #00F2EA;
         }
 
         .cta-button {
@@ -749,7 +880,7 @@
     <header>
         <div class="header-content">
             <div class="logo-section">
-                <img src="https://iili.io/qJY60a2.jpg" alt="Youth 4 A Better Future PH Logo" class="logo-img">
+                <img src="https://i.postimg.cc/VvP8RQf8/logo.png" alt="Youth 4 A Better Future PH Logo" class="logo-img">
                 <div class="logo-text">Youth 4 A Better Future PH</div>
             </div>
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
@@ -783,20 +914,22 @@
                         <p>We create age-appropriate financial literacy curriculum and deliver engaging workshops across schools, community centers, and digital platforms. From budgeting basics to investing fundamentals, we equip young Filipinos with practical money management skills.</p>
                     </div>
 
-                    <div class="card">
+                    <div class="card blue-card">
                         <h3>Why It Matters</h3>
                         <p>Financial literacy is the foundation of economic mobility. Too many Filipino youth face critical life decisions without basic money knowledge, limiting their opportunities. Early financial education breaks cycles of poverty and builds generational wealth.</p>
                     </div>
 
-                    <div class="card">
+                    <div class="card yellow-card">
                         <h3>Who We Serve</h3>
                         <p>We serve K-12 students across the Philippines, with special focus on under-resourced communities. Our programs reach learners in public schools, community organizations, churches, and youth groups throughout Metro Manila and beyond.</p>
                     </div>
 
-                    <div class="card">
+                    <div class="card white-card">
                         <h3>How to Get Involved</h3>
                         <p>Join our movement as a volunteer facilitator, partner organization, sponsor, or advocate. Whether you can teach a workshop, host an event, or share our mission on social media, every contribution creates impact.</p>
-                        <a href="#involved" onclick="showSection('involved')" class="cta-button" style="margin-top: 1.5rem;">Join Us</a>
+                        <div style="text-align: center;">
+                            <a href="#involved" onclick="showSection('involved')" class="cta-button" style="margin-top: 1.5rem;">Join Us</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -961,7 +1094,7 @@
                         <p><strong>Facilitation:</strong> Support workshop delivery in schools and community centers.</p>
                         <p><strong>Content:</strong> Help script, record, and edit lesson videos.</p>
                         <p><strong>Translation:</strong> Assist with Filipino and regional language adaptations.</p>
-                        <a href="mailto:kpsmk25@gmail.com" class="cta-button" style="margin-top: 1.5rem;">Apply to Volunteer</a>
+                        <a href="mailto:volunteer@y4abfph.org" class="cta-button" style="margin-top: 1.5rem;">Apply to Volunteer</a>
                     </div>
 
                     <div class="card">
@@ -969,7 +1102,7 @@
                         <p><strong>Schools & Youth Orgs:</strong> Bring our programs to your learners.</p>
                         <p><strong>Community Groups & Churches:</strong> Host workshops and outreach events.</p>
                         <p><strong>Media & PR Partners:</strong> Amplify awareness to reach more families.</p>
-                        <a href="mailto:kpsmk25@gmail.com" class="cta-button" style="margin-top: 1.5rem;">Start a Partnership</a>
+                        <a href="mailto:partnerships@y4abfph.org" class="cta-button" style="margin-top: 1.5rem;">Start a Partnership</a>
                     </div>
 
                     <div class="card">
@@ -977,7 +1110,7 @@
                         <p><strong>Event Sponsorships:</strong> Support workshops, materials, and technology.</p>
                         <p><strong>Program Grants:</strong> Fund curriculum development and regional expansion.</p>
                         <p><strong>Community Fundraisers:</strong> Organize local events to sustain ongoing programs.</p>
-                        <a href="mailto:kpsmk25@gmail.com" class="cta-button" style="margin-top: 1.5rem;">Become a Sponsor</a>
+                        <a href="mailto:info@y4abfph.org" class="cta-button" style="margin-top: 1.5rem;">Become a Sponsor</a>
                     </div>
 
                     <div class="card">
@@ -986,19 +1119,28 @@
                         <div style="margin-top: 1.5rem;">
                             <p style="margin-bottom: 1rem;"><strong>Connect with us:</strong></p>
                             <div style="display: flex; gap: 1.5rem; justify-content: center; margin-top: 1.5rem;">
-                                <a href="https://www.linkedin.com/company/youth-4-a-better-future-ph/?viewAsMember=true" target="_blank" rel="noopener noreferrer" style="color: var(--red); transition: all 0.3s ease; transform: scale(1);" onmouseover="this.style.transform='scale(1.2)'; this.style.color='#0077b5'" onmouseout="this.style.transform='scale(1)'; this.style.color='var(--red)'">
+                                <a href="https://www.linkedin.com/company/youth-4-a-better-future-ph/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="social-icon" data-platform="linkedin">
                                     <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                                     </svg>
                                 </a>
-                                <a href="https://www.instagram.com/kpsmk_ph?igsh=eWQwMW5hZ3Ztcjhs&utm_source=qr" target="_blank" rel="noopener noreferrer" style="color: var(--red); transition: all 0.3s ease; transform: scale(1);" onmouseover="this.style.transform='scale(1.2)'; this.style.color='#E4405F'" onmouseout="this.style.transform='scale(1)'; this.style.color='var(--red)'">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                <a href="https://www.instagram.com/kpsmk_ph?igsh=eWQwMW5hZ3Ztcjhs&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-icon" data-platform="instagram">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                        <defs>
+                                            <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                                                <stop offset="0%" style="stop-color:#FD5949;stop-opacity:1" />
+                                                <stop offset="25%" style="stop-color:#D6249F;stop-opacity:1" />
+                                                <stop offset="50%" style="stop-color:#285AEB;stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:#285AEB;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor" class="instagram-path"/>
                                     </svg>
                                 </a>
-                                <a href="https://www.tiktok.com/@kpsmk25?_r=1&_t=ZS-93NtLCMMH3d" target="_blank" rel="noopener noreferrer" style="color: var(--red); transition: all 0.3s ease; transform: scale(1);" onmouseover="this.style.transform='scale(1.2)'; this.style.color='#000000'" onmouseout="this.style.transform='scale(1)'; this.style.color='var(--red)'">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                                <a href="https://www.tiktok.com/@kpsmk25?_r=1&_t=ZS-93NtLCMMH3d" target="_blank" rel="noopener noreferrer" class="social-icon" data-platform="tiktok">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                        <path d="M19.321 5.562a5.124 5.124 0 0 1-.443-.258 6.228 6.228 0 0 1-1.138-.927c-.728-.858-1.131-1.925-1.131-3.002h-2.913v14.943c0 .877-.288 1.562-.863 2.125-.574.563-1.312.844-2.125.844-1.747 0-3.168-1.422-3.168-3.169 0-1.746 1.421-3.168 3.168-3.168.343 0 .686.056 1.012.168v-2.944c-.325-.044-.656-.066-.988-.066-3.45 0-6.25 2.8-6.25 6.25s2.8 6.25 6.25 6.25 6.25-2.8 6.25-6.25V8.801a9.217 9.217 0 0 0 5.327 1.674V7.492a6.223 6.223 0 0 1-2.988-1.93Z" fill="#FF004F" class="tiktok-red"/>
+                                        <path d="M19.321 5.562a5.124 5.124 0 0 1-.443-.258 6.228 6.228 0 0 1-1.138-.927c-.728-.858-1.131-1.925-1.131-3.002h-2.913v14.943c0 .877-.288 1.562-.863 2.125-.574.563-1.312.844-2.125.844-1.747 0-3.168-1.422-3.168-3.169 0-1.746 1.421-3.168 3.168-3.168.343 0 .686.056 1.012.168v-2.944c-.325-.044-.656-.066-.988-.066-3.45 0-6.25 2.8-6.25 6.25s2.8 6.25 6.25 6.25 6.25-2.8 6.25-6.25V8.801a9.217 9.217 0 0 0 5.327 1.674V7.492a6.223 6.223 0 0 1-2.988-1.93Z" fill="#00F2EA" class="tiktok-cyan" style="mix-blend-mode: lighten; transform: translate(-1px, -1px);"/>
                                     </svg>
                                 </a>
                             </div>
@@ -1046,7 +1188,7 @@
     </main>
 
     <footer>
-        <p style="font-size: 1.05rem;">&copy; 2025 Youth 4 A Better Future PH</p>
+        <p style="font-size: 1.05rem;">&copy; 2026 Youth 4 A Better Future PH</p>
         <p style="margin-top: 0.5rem; opacity: 0.9;">Empowering the next generation with the knowledge and confidence to forge brighter futures</p>
     </footer>
 
