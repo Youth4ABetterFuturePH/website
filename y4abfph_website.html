@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youth 4 A Better Future PH</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+:root{
+  --white:#FFFFFF;
+  --red:#CE1126;
+  --red-dark:#a00e1e;
+  --bg:#0a0e1a;
+  --card:#111827;
+  --border:rgba(255,255,255,0.07);
+  --tp:#f9fafb;
+  --ts:#9ca3af;
+  --phil-blue:#0038A8;
+  --phil-yellow:#FCD116;
+}
+
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tp);overflow-x:hidden;line-height:1.6;}
+h1,h2,h3,h4{font-family:'Nunito',sans-serif;line-height:1.15;}
+
+/* ── Scroll Animations ─────────────── */
+.anim{opacity:0;transform:translateY(36px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1);}
+.anim.in{opacity:1;transform:none;}
+.d1{transition-delay:.08s;} .d2{transition-delay:.16s;} .d3{transition-delay:.24s;} .d4{transition-delay:.32s;}
+
+/* ── Header ────────────────────────── */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06);transition:all .3s ease;}
+.hdr{max-width:1200px;margin:0 auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;}
+.logo-wrap{display:flex;align-items:center;gap:.75rem;text-decoration:none;}
+.logo-wrap img{height:50px;width:auto;border-radius:8px;object-fit:cover;}
+.logo-name{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.05rem;color:var(--tp);}
+.nav-links{display:flex;align-items:center;gap:2rem;}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--ts);text-decoration:none;transition:color .25s;}
+.nav-links a:hover{color:var(--tp);}
+.nav-cta{background:var(--red) !important;color:var(--white) !important;padding:.55rem 1.25rem;border-radius:50px;font-weight:700 !important;transition:background .25s,transform .25s !important;}
+.nav-cta:hover{background:var(--red-dark) !important;transform:translateY(-1px);}
+.menu-btn{display:none;background:none;border:none;color:var(--tp);font-size:1.5rem;cursor:pointer;}
+
+/* ── Common ────────────────────────── */
+section{padding:7rem 2rem;}
+.wrap{max-width:1200px;margin:0 auto;}
+.lbl{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:.85rem;display:block;}
+.sh{font-family:'Nunito',sans-serif;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;letter-spacing:-1.5px;color:var(--tp);margin-bottom:1.25rem;}
+.sub{font-size:.975rem;color:var(--ts);line-height:1.85;max-width:600px;}
+.divider{border:none;border-top:1px solid var(--border);}
+
+/* Buttons */
+.btn{display:inline-block;padding:.9rem 2rem;border-radius:50px;font-weight:700;font-size:.925rem;text-decoration:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .3s cubic-bezier(.4,0,.2,1);}
+.btn-red{background:linear-gradient(135deg,var(--red),var(--red-dark));color:var(--white);box-shadow:0 4px 20px rgba(206,17,38,.35);}
+.btn-red:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(206,17,38,.45);}
+.btn-ghost{background:transparent;color:var(--tp);border:1px solid rgba(255,255,255,.15);}
+.btn-ghost:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.3);transform:translateY(-2px);}
+.btn-white{background:var(--white);color:#0a0e1a;box-shadow:0 4px 15px rgba(255,255,255,.25);}
+.btn-white:hover{box-shadow:0 8px 30px rgba(255,255,255,.4),0 0 50px rgba(255,255,255,.15);transform:translateY(-2px);}
+
+/* ── Hero ──────────────────────────── */
+#home{min-height:100vh;display:flex;align-items:center;padding-top:8rem;background:linear-gradient(160deg,#0a0e1a 0%,#0d1629 60%,#111827 100%);position:relative;overflow:hidden;}
+#home::before{content:'';position:absolute;top:-80px;right:-80px;width:580px;height:580px;background:radial-gradient(circle,rgba(206,17,38,.12) 0%,transparent 65%);border-radius:50%;animation:fl 8s ease-in-out infinite;}
+#home::after{content:'';position:absolute;bottom:-120px;left:-80px;width:480px;height:480px;background:radial-gradient(circle,rgba(0,56,168,.1) 0%,transparent 65%);border-radius:50%;animation:fl 11s ease-in-out infinite reverse;}
+@keyframes fl{0%,100%{transform:translate(0,0)}50%{transform:translate(18px,-28px)}}
+.hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(206,17,38,.1);border:1px solid rgba(206,17,38,.2);padding:.4rem 1rem;border-radius:50px;font-size:.82rem;color:var(--red);font-weight:600;margin-bottom:2rem;}
+.hero-title{font-family:'Nunito',sans-serif;font-size:clamp(3rem,7.5vw,5.8rem);font-weight:900;letter-spacing:-2.5px;line-height:1.05;margin-bottom:1.5rem;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,.82) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:1.05rem;color:var(--ts);max-width:560px;line-height:1.85;margin-bottom:2.5rem;}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+.hero-pills{display:flex;gap:1.5rem;margin-top:3rem;flex-wrap:wrap;}
+.pill{font-size:.8rem;color:var(--ts);display:flex;align-items:center;gap:.4rem;}
+.pill::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--red);}
+
+/* ── Goal ──────────────────────────── */
+#goal{background:var(--bg);}
+.goal-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem;}
+.goal-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;align-items:end;}
+.gc{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all .4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;}
+.gc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:20px 20px 0 0;transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.4,0,.2,1);}
+.gc:hover::after{transform:scaleX(1);}
+.gc:hover{transform:translateY(-6px);}
+.gc.red::after{background:var(--red);} .gc.red:hover{border-color:rgba(206,17,38,.3);box-shadow:0 16px 40px rgba(206,17,38,.15);}
+.gc.blue::after{background:var(--phil-blue);} .gc.blue:hover{border-color:rgba(0,56,168,.4);box-shadow:0 16px 40px rgba(0,56,168,.15);}
+.gc.yellow::after{background:var(--phil-yellow);} .gc.yellow:hover{border-color:rgba(252,209,22,.4);box-shadow:0 16px 40px rgba(252,209,22,.12);}
+.gc.wh::after{background:var(--white);} .gc.wh:hover{border-color:rgba(255,255,255,.25);box-shadow:0 16px 40px rgba(255,255,255,.08);}
+.gc h3{font-family:'Nunito',sans-serif;font-size:1.75rem;font-weight:900;margin-bottom:.9rem;}
+.gc.red h3{color:var(--red);} .gc.blue h3{color:var(--phil-blue);} .gc.yellow h3{color:var(--phil-yellow);} .gc.wh h3{color:var(--white);}
+.gc p{font-size:.875rem;color:var(--ts);line-height:1.8;}
+.gc .ctr{text-align:center;margin-top:1.5rem;}
+
+/* ── About ─────────────────────────── */
+#about{background:linear-gradient(180deg,#0a0e1a,#0d1222);}
+.mission-box{background:rgba(206,17,38,.07);border:1px solid rgba(206,17,38,.2);border-radius:22px;padding:3rem;margin-top:3rem;text-align:center;}
+.mission-box .lbl{justify-content:center;display:block;margin-bottom:.75rem;}
+.mission-box p{font-size:1.1rem;color:var(--ts);line-height:1.85;max-width:680px;margin:0 auto;}
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem;}
+.team-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:20px;padding:2rem 2.25rem;display:flex;gap:1.5rem;align-items:flex-start;transition:all .35s cubic-bezier(.4,0,.2,1);}
+.team-card:hover{transform:translateY(-5px);background:rgba(255,255,255,.05);border-color:rgba(206,17,38,.25);box-shadow:0 16px 40px rgba(206,17,38,.1);}
+.avatar{width:72px;height:72px;min-width:72px;border-radius:50%;background:linear-gradient(135deg,rgba(206,17,38,.2),rgba(0,56,168,.2));border:2px solid rgba(206,17,38,.3);display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-weight:900;font-size:1.3rem;color:var(--tp);transition:all .3s ease;}
+.team-card:hover .avatar{border-color:var(--red);box-shadow:0 0 20px rgba(206,17,38,.3);}
+.tinfo h4{font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:800;color:var(--tp);}
+.tinfo .role{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--red);display:block;margin:.2rem 0 .6rem;}
+.tinfo p{font-size:.85rem;color:var(--ts);line-height:1.75;}
+.icards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.icard{background:rgba(255,255,255,.03);border:1px solid var(--border);border-left:4px solid var(--red);border-radius:18px;padding:2.25rem;transition:all .35s ease;}
+.icard:hover{background:rgba(255,255,255,.05);transform:translateX(4px);}
+.icard h3{font-family:'Nunito',sans-serif;font-size:1.35rem;font-weight:800;color:var(--tp);margin-bottom:.9rem;}
+.icard p,.icard ul{font-size:.875rem;color:var(--ts);line-height:1.8;}
+.icard ul{list-style:none;}
+.icard li{padding-left:1.5rem;position:relative;margin-bottom:.7rem;}
+.icard li::before{content:'●';color:var(--red);position:absolute;left:0;font-size:.65rem;top:.35rem;}
+.icard strong{color:var(--red);font-weight:700;}
+
+/* ── How We Work ───────────────────── */
+#work{background:var(--bg);}
+.pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem;}
+.pillar{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:18px;padding:2.25rem;transition:all .35s ease;}
+.pillar:hover{background:rgba(255,255,255,.05);border-color:rgba(206,17,38,.25);transform:translateY(-4px);box-shadow:0 12px 30px rgba(206,17,38,.1);}
+.pillar h3{font-family:'Nunito',sans-serif;font-size:1.4rem;font-weight:800;color:var(--red);margin-bottom:.75rem;}
+.pillar p{font-size:.875rem;color:var(--ts);line-height:1.8;}
+.prog-head{margin-top:5.5rem;}
+.modules{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2rem;}
+.mod{background:rgba(255,255,255,.03);border:1px solid var(--border);border-left:3px solid var(--red);border-radius:14px;padding:1.65rem;transition:all .3s ease;}
+.mod:hover{background:rgba(255,255,255,.05);transform:translateX(4px);}
+.mod h4{font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;color:var(--tp);margin-bottom:.45rem;}
+.mod p{font-size:.84rem;color:var(--ts);line-height:1.75;}
+.formats{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2rem;}
+.fmt{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:1.65rem;transition:all .3s ease;}
+.fmt:hover{background:rgba(255,255,255,.05);border-color:rgba(206,17,38,.2);}
+.fmt h4{font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;color:var(--tp);margin-bottom:.45rem;}
+.fmt p{font-size:.84rem;color:var(--ts);line-height:1.75;}
+.outcomes{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:18px;padding:2.5rem;margin-top:2.5rem;}
+.outcomes h3{font-family:'Nunito',sans-serif;font-size:1.35rem;font-weight:800;color:var(--tp);margin-bottom:1.5rem;}
+.out-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.85rem;}
+.out-item{display:flex;align-items:flex-start;gap:.75rem;font-size:.88rem;color:var(--ts);}
+.check{color:var(--red);font-size:1rem;flex-shrink:0;margin-top:.1rem;}
+
+/* ── Get Involved ──────────────────── */
+#involved{background:linear-gradient(180deg,#0a0e1a,#0d1222);}
+.inv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem;align-items:end;}
+.ivc{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:20px;padding:2.5rem;position:relative;overflow:hidden;transition:all .4s cubic-bezier(.4,0,.2,1);}
+.ivc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--white);border-radius:20px 20px 0 0;transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.4,0,.2,1);}
+.ivc:hover::after{transform:scaleX(1);}
+.ivc:hover{transform:translateY(-6px);background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.2);box-shadow:0 16px 40px rgba(255,255,255,.06);}
+.ivc h3{font-family:'Nunito',sans-serif;font-size:1.75rem;font-weight:900;color:var(--white);margin-bottom:1.25rem;}
+.ivc p{font-size:.875rem;color:var(--ts);line-height:1.8;margin-bottom:.5rem;}
+.ivc strong{color:rgba(255,255,255,.75);font-weight:600;}
+.ivc .ibt{display:flex;justify-content:center;margin-top:1.5rem;}
+.social-row{display:flex;gap:1.5rem;margin-top:1.5rem;}
+.social-icon{color:var(--white);transition:all .3s cubic-bezier(.4,0,.2,1);display:inline-block;}
+.social-icon:hover{transform:scale(1.2);}
+.social-icon[data-platform="linkedin"]:hover{color:#0077b5;}
+.social-icon[data-platform="instagram"] .ig-path{fill:currentColor;transition:fill .3s ease;}
+.social-icon[data-platform="instagram"]:hover .ig-path{fill:url(#ig-grad);}
+.social-icon[data-platform="tiktok"] .tk-red,.social-icon[data-platform="tiktok"] .tk-cyan{fill:var(--white);transition:fill .3s ease;}
+.social-icon[data-platform="tiktok"]:hover .tk-red{fill:#FF004F;}
+.social-icon[data-platform="tiktok"]:hover .tk-cyan{fill:#00F2EA;}
+
+/* ── Contact ───────────────────────── */
+#contact{background:var(--bg);}
+.contact-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;margin-top:3rem;}
+.ci h3{font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:800;color:var(--tp);margin-bottom:.6rem;}
+.ci p{font-size:.9rem;color:var(--ts);line-height:1.8;}
+.ci a{color:var(--red);text-decoration:none;font-weight:600;transition:color .25s;}
+.ci a:hover{color:#ff4757;}
+.form-box{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:22px;padding:2.5rem;}
+.form-box h3{font-family:'Nunito',sans-serif;font-size:1.4rem;font-weight:800;color:var(--tp);margin-bottom:1.75rem;}
+.fr{margin-bottom:1.4rem;}
+.fr label{display:block;font-size:.8rem;font-weight:600;color:var(--ts);margin-bottom:.5rem;letter-spacing:.03em;}
+.fr input,.fr textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:.875rem 1.1rem;font-size:.925rem;font-family:'DM Sans',sans-serif;color:var(--tp);transition:all .3s ease;}
+.fr input:focus,.fr textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(206,17,38,.15);background:rgba(255,255,255,.06);}
+.fr textarea{min-height:130px;resize:vertical;}
+
+/* ── Footer ────────────────────────── */
+footer{background:#080b14;border-top:1px solid rgba(255,255,255,.06);padding:4rem 2rem 2.5rem;}
+.foot-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+.foot-brand img{height:48px;border-radius:8px;object-fit:cover;margin-bottom:.85rem;}
+.foot-brand .fn{font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;color:var(--tp);display:block;margin-bottom:.5rem;}
+.foot-brand p{font-size:.84rem;color:var(--ts);max-width:280px;line-height:1.75;}
+.fc h4{font-family:'Nunito',sans-serif;font-weight:800;font-size:.8rem;color:var(--tp);margin-bottom:1rem;letter-spacing:.08em;text-transform:uppercase;}
+.fc ul{list-style:none;}
+.fc li{margin-bottom:.55rem;}
+.fc a{font-size:.84rem;color:var(--ts);text-decoration:none;transition:color .25s;}
+.fc a:hover{color:var(--tp);}
+.foot-bottom{max-width:1200px;margin:0 auto;padding-top:2rem;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.foot-bottom p{font-size:.78rem;color:var(--ts);}
+.mt3{margin-top:3rem;} .mt5{margin-top:5rem;}
+
+/* ── Responsive ────────────────────── */
+@media(max-width:900px){
+  .icards{grid-template-columns:1fr 1fr;}
+  .modules{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  section{padding:5rem 1.5rem;}
+  .hdr{padding:1rem 1.5rem;}
+  .menu-btn{display:block;}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,14,26,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06);flex-direction:column;padding:1.5rem 2rem;gap:1.25rem;}
+  .nav-links.open{display:flex;}
+  .goal-top{grid-template-columns:1fr;gap:1.5rem;}
+  .goal-cards{grid-template-columns:1fr;}
+  .team-grid{grid-template-columns:1fr;}
+  .icards{grid-template-columns:1fr;}
+  .pillars{grid-template-columns:1fr;}
+  .modules{grid-template-columns:1fr;}
+  .formats{grid-template-columns:1fr;}
+  .out-grid{grid-template-columns:1fr;}
+  .inv-grid{grid-template-columns:1fr;}
+  .contact-layout{grid-template-columns:1fr;gap:2.5rem;}
+  .foot-inner{grid-template-columns:1fr;gap:2rem;}
+  .foot-bottom{flex-direction:column;text-align:center;}
+}
+
+/* ── Problem Stats ───────────────── */
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
+.stat-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:2.75rem;transition:all .4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;}
+.stat-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:20px 20px 0 0;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.4,0,.2,1);}
+.stat-card:hover::after{transform:scaleX(1);}
+.stat-card:hover{background:rgba(255,255,255,.05);border-color:rgba(206,17,38,.25);transform:translateY(-5px);box-shadow:0 16px 40px rgba(206,17,38,.12);}
+.stat-n{font-family:'Nunito',sans-serif;font-size:5.5rem;font-weight:900;line-height:1;letter-spacing:-3px;color:var(--red);margin-bottom:1.1rem;}
+.stat-d{font-size:.9rem;color:var(--ts);line-height:1.85;}
+.stat-d strong{color:var(--tp);font-weight:700;}
+.stat-src{font-size:.72rem;color:var(--ts);opacity:.55;margin-top:1.75rem;font-style:italic;letter-spacing:.02em;}
+@media(max-width:768px){.stat-grid{grid-template-columns:1fr;} .stat-n{font-size:4.5rem;}}
+
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <a class="logo-wrap" href="#home">
+      <img src="https://iili.io/qJY60a2.jpg" alt="Youth 4 A Better Future PH Logo">
+      <span class="logo-name">Youth 4 A Better Future PH</span>
+    </a>
+    <button class="menu-btn" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <nav class="nav-links" id="nav">
+      <a href="#goal">Our Goal</a>
+      <a href="#about">About</a>
+      <a href="#work">How We Work</a>
+      <a href="#involved">Get Involved</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ─── HERO ─────────────────────── -->
+<section id="home">
+  <div class="wrap">
+    <div class="hero-tag anim">🇵🇭 Student-Led · Free for Schools · Philippines</div>
+    <h1 class="hero-title anim d1">Empowering the<br>Next Generation</h1>
+    <p class="hero-sub anim d2">Empowering the next generation with the knowledge and confidence to forge brighter futures through financial literacy.</p>
+    <div class="hero-actions anim d3">
+      <a href="#involved" class="btn btn-red">Get Involved</a>
+      <a href="#about" class="btn btn-ghost">Learn more</a>
+    </div>
+    <div class="hero-pills anim d4">
+      <span class="pill">Student-led</span>
+      <span class="pill">Free for schools</span>
+      <span class="pill">K–12 learners</span>
+      <span class="pill">Philippines</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ─── PROBLEM STATEMENT ─────────── -->
+<section id="problem">
+  <div class="wrap">
+    <span class="lbl anim">The Problem</span>
+    <h2 class="sh anim d1">Financial literacy in the<br>Philippines demands action.</h2>
+    <p class="sub anim d2">A Philippine Department of Education report reveals a stark reality: the vast majority of Filipinos lack even basic financial knowledge — creating a generational gap that limits economic mobility and opportunity for millions.</p>
+
+    <div class="stat-grid">
+      <div class="stat-card anim d2">
+        <div class="stat-n">41%</div>
+        <p class="stat-d">of Filipinos could answer only <strong>one</strong> of three financial literacy questions correctly</p>
+      </div>
+      <div class="stat-card anim d3">
+        <div class="stat-n">8%</div>
+        <p class="stat-d">could answer <strong>all three</strong> financial literacy questions correctly</p>
+      </div>
+    </div>
+    <p class="stat-src anim">Source: Philippine Department of Education</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ─── OUR GOAL ──────────────────── -->
+<section id="goal">
+  <div class="wrap">
+    <div class="goal-top">
+      <div>
+        <span class="lbl anim">Our Goal</span>
+        <h2 class="sh anim d1">Financial literacy,<br>for every<br>Filipino child.</h2>
+      </div>
+      <p class="sub anim d2">Youth 4 A Better Future PH is a student-led nonprofit advancing financial literacy among Filipino children and teens. We design accessible lessons, deliver community workshops, and collaborate with schools and local organizations to close knowledge gaps and promote economic mobility.</p>
+    </div>
+
+    <div class="goal-cards">
+      <div class="gc red anim">
+        <h3>What We Do</h3>
+        <p>We create age-appropriate financial literacy curriculum and deliver engaging workshops across schools, community centers, and digital platforms. From budgeting basics to investing fundamentals, we equip young Filipinos with practical money management skills.</p>
+      </div>
+      <div class="gc blue anim d1">
+        <h3>Why It Matters</h3>
+        <p>Financial literacy is the foundation of economic mobility. Too many Filipino youth face critical life decisions without basic money knowledge, limiting their opportunities. Early financial education breaks cycles of poverty and builds generational wealth.</p>
+      </div>
+      <div class="gc yellow anim d2">
+        <h3>Who We Serve</h3>
+        <p>We serve K–12 students across the Philippines, with special focus on under-resourced communities. Our programs reach learners in public schools, community organizations, churches, and youth groups throughout Metro Manila and beyond.</p>
+      </div>
+      <div class="gc wh anim d3">
+        <h3>How to Get Involved</h3>
+        <p>Join our movement as a volunteer facilitator, partner organization, sponsor, or advocate. Whether you can teach a workshop, host an event, or share our mission on social media, every contribution creates impact.</p>
+        <div class="ctr"><a href="#involved" class="btn btn-white">Join Us</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ─── ABOUT ─────────────────────── -->
+<section id="about">
+  <div class="wrap">
+    <span class="lbl anim">About Us</span>
+    <h2 class="sh anim d1">Led by students,<br>driven by purpose.</h2>
+
+    <div class="mission-box anim d2">
+      <span class="lbl">Our Mission</span>
+      <p>We empower Filipino youth with practical financial education so they can make informed choices, build resilience, and unlock opportunity.</p>
+    </div>
+
+    <span class="lbl mt3 anim" style="display:block;">Our Team</span>
+    <div class="team-grid">
+      <div class="team-card anim">
+        <div class="avatar">RA</div>
+        <div class="tinfo">
+          <h4>Ronnie Alava Jr.</h4>
+          <span class="role">Co-Founder &amp; CEO</span>
+          <p>Ronnie is a junior at Newton North High School. He is an aspiring finance professional, alongside being Co-Founder and CEO of KPSMK, he currently holds positions on PAMANA and the TAYO Youth Council among others.</p>
+        </div>
+      </div>
+      <div class="team-card anim d1">
+        <div class="avatar">PM</div>
+        <div class="tinfo">
+          <h4>Patrick Mendoza</h4>
+          <span class="role">COO</span>
+          <p>Patrick is a freshman at Philips Academy Andover, he is the COO and engages in numerous clubs within his community. Upon graduation, he hopes to pursue biomedical engineering.</p>
+        </div>
+      </div>
+      <div class="team-card anim d2">
+        <div class="avatar">CD</div>
+        <div class="tinfo">
+          <h4>Chelsea Domingo</h4>
+          <span class="role">CDO</span>
+          <p>CDO and sophomore at Holbrook High School. Chelsea was elected to serve in her student government and is an active member of clubs. In the future, she desires to take on a pre-med track.</p>
+        </div>
+      </div>
+      <div class="team-card anim d3">
+        <div class="avatar">FL</div>
+        <div class="tinfo">
+          <h4>Faye Lorenzo</h4>
+          <span class="role">CMO</span>
+          <p>CMO; Junior at Shrewsbury High School, holding a position within her student body. Outside of classes, she is a consistent participant in her church community and town community. Succeeding higher education, Faye intends on working in healthcare.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="icards mt3">
+      <div class="icard anim">
+        <h3>Our Vision</h3>
+        <p>A Philippines where every student—regardless of background—is equipped with the financial skills to thrive.</p>
+      </div>
+      <div class="icard anim d1">
+        <h3>Our Story</h3>
+        <p>Youth 4 A Better Future PH began with a simple observation: too many teens face major life decisions without basic money knowledge. As students ourselves, we saw the consequences of limited access to quality financial education—especially in under-resourced communities. We organized, built lesson plans, and partnered with local groups to deliver workshops that meet learners where they are.</p>
+      </div>
+      <div class="icard anim d2">
+        <h3>What We Believe</h3>
+        <ul>
+          <li><strong>Knowledge is Power:</strong> Practical money skills drive long-term wellbeing.</li>
+          <li><strong>Access Matters:</strong> Educational resources should be free, inclusive, and culturally relevant.</li>
+          <li><strong>Community Works:</strong> Schools, families, and local organizations are all essential to the process.</li>
+          <li><strong>Early Intervention:</strong> The earlier students learn, the higher their career trajectory.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ─── HOW WE WORK ────────────────── -->
+<section id="work">
+  <div class="wrap">
+    <span class="lbl anim">How We Work</span>
+    <h2 class="sh anim d1">Structured, accessible,<br>community-driven.</h2>
+
+    <div class="pillars">
+      <div class="pillar anim"><h3>Curriculum</h3><p>Age-appropriate lessons aligned to core financial competencies: earning, saving, budgeting, banking, credit, and investing.</p></div>
+      <div class="pillar anim d1"><h3>Delivery</h3><p>Workshops, after-school programs, and digital modules accessible on web and mobile platforms.</p></div>
+      <div class="pillar anim d2"><h3>Partnerships</h3><p>We collaborate with schools, churches, youth groups, and civic organizations to reach learners at scale.</p></div>
+      <div class="pillar anim d3"><h3>Measurement</h3><p>Pre/post assessments and feedback loops guide continuous improvement of our programs.</p></div>
+    </div>
+
+    <div class="prog-head anim">
+      <span class="lbl">Programs &amp; Lessons</span>
+      <h3 class="sh" style="font-size:clamp(2rem,4vw,3rem);">Practical lessons,<br>built for every learner.</h3>
+      <p class="sub">We deliver structured financial literacy programs for K–12 learners, with flexible formats for classrooms, clubs, and community events.</p>
+    </div>
+
+    <span class="lbl mt3 anim" style="display:block;margin-top:3rem;">Core Modules</span>
+    <div class="modules">
+      <div class="mod anim"><h4>Money Basics</h4><p>Needs vs. wants, earning income, and how money moves.</p></div>
+      <div class="mod anim d1"><h4>Budgeting &amp; Saving</h4><p>Setting goals, tracking expenses, building savings habits.</p></div>
+      <div class="mod anim d2"><h4>Banking &amp; Payments</h4><p>Accounts, debit vs. credit, digital wallets, remittances.</p></div>
+      <div class="mod anim d3"><h4>Credit &amp; Debt</h4><p>How credit works, interest, responsible borrowing, avoiding predatory lending.</p></div>
+      <div class="mod anim"><h4>Investing Foundations</h4><p>Compound growth, risk vs. return, diversification basics.</p></div>
+      <div class="mod anim d1"><h4>Financial Planning</h4><p>Setting long-term goals, emergency funds, education pathways.</p></div>
+    </div>
+
+    <span class="lbl anim" style="display:block;margin-top:3rem;">Delivery Formats</span>
+    <div class="formats">
+      <div class="fmt anim"><h4>School Workshops</h4><p>60–90 minute sessions with interactive activities.</p></div>
+      <div class="fmt anim d1"><h4>Community Pop-ups</h4><p>Events hosted with local partners including churches, clubs, and youth organizations.</p></div>
+      <div class="fmt anim d2"><h4>Digital Lessons</h4><p>Short, mobile-friendly modules with quizzes and reflection prompts.</p></div>
+      <div class="fmt anim d3"><h4>Parent &amp; Educator Toolkits</h4><p>Guides for reinforcing lessons at home and in class.</p></div>
+    </div>
+
+    <div class="outcomes anim">
+      <h3>Outcomes</h3>
+      <div class="out-grid">
+        <div class="out-item"><span class="check">✓</span>Improved baseline knowledge and confidence</div>
+        <div class="out-item"><span class="check">✓</span>Practical budgets and savings plans created by learners</div>
+        <div class="out-item"><span class="check">✓</span>Increased awareness of safe financial products</div>
+        <div class="out-item"><span class="check">✓</span>Stronger family conversations about money</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ─── GET INVOLVED ──────────────── -->
+<section id="involved">
+  <div class="wrap">
+    <span class="lbl anim">Get Involved</span>
+    <h2 class="sh anim d1">Join the movement.</h2>
+
+    <div class="inv-grid">
+      <div class="ivc anim">
+        <h3>Volunteer</h3>
+        <p><strong>Facilitation:</strong> Support workshop delivery in schools and community centers.</p>
+        <p><strong>Content:</strong> Help script, record, and edit lesson videos.</p>
+        <p><strong>Translation:</strong> Assist with Filipino and regional language adaptations.</p>
+        <div class="ibt"><a href="mailto:kpsmk25@gmail.com" class="btn btn-white">Apply to Volunteer</a></div>
+      </div>
+      <div class="ivc anim d1">
+        <h3>Partner With Us</h3>
+        <p><strong>Schools &amp; Youth Orgs:</strong> Bring our programs to your learners.</p>
+        <p><strong>Community Groups &amp; Churches:</strong> Host workshops and outreach events.</p>
+        <p><strong>Media &amp; PR Partners:</strong> Amplify awareness to reach more families.</p>
+        <div class="ibt"><a href="mailto:kpsmk25@gmail.com" class="btn btn-white">Start a Partnership</a></div>
+      </div>
+      <div class="ivc anim d2">
+        <h3>Fundraise &amp; Sponsor</h3>
+        <p><strong>Event Sponsorships:</strong> Support workshops, materials, and technology.</p>
+        <p><strong>Program Grants:</strong> Fund curriculum development and regional expansion.</p>
+        <p><strong>Community Fundraisers:</strong> Organize local events to sustain ongoing programs.</p>
+        <div class="ibt"><a href="mailto:kpsmk25@gmail.com" class="btn btn-white">Become a Sponsor</a></div>
+      </div>
+      <div class="ivc anim d3">
+        <h3>Spread the Word</h3>
+        <p>Follow us on social media, share our posts, and invite your network to join the movement.</p>
+        <p style="margin-top:.85rem"><strong>Connect with us:</strong></p>
+        <div class="social-row">
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/company/youth-4-a-better-future-ph/?viewAsMember=true" target="_blank" rel="noopener" class="social-icon" data-platform="linkedin">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/kpsmk_ph?igsh=eWQwMW5hZ3Ztcjhs&utm_source=qr" target="_blank" rel="noopener" class="social-icon" data-platform="instagram">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none">
+              <defs>
+                <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#FD5949"/>
+                  <stop offset="35%" style="stop-color:#D6249F"/>
+                  <stop offset="100%" style="stop-color:#285AEB"/>
+                </linearGradient>
+              </defs>
+              <path class="ig-path" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="white"/>
+            </svg>
+          </a>
+          <!-- TikTok -->
+          <a href="https://www.tiktok.com/@kpsmk25?_r=1&_t=ZS-93NtLCMMH3d" target="_blank" rel="noopener" class="social-icon" data-platform="tiktok">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none">
+              <path class="tk-red" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+              <path class="tk-cyan" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" style="transform:translate(-1px,-1px);mix-blend-mode:lighten;"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ─── CONTACT ───────────────────── -->
+<section id="contact">
+  <div class="wrap">
+    <span class="lbl anim">Contact</span>
+    <h2 class="sh anim d1">We'd love to<br>hear from you.</h2>
+
+    <div class="contact-layout">
+      <div class="ci anim d2">
+        <h3>Get in Touch</h3>
+        <p>Email: <a href="mailto:kpsmk25@gmail.com">kpsmk25@gmail.com</a></p>
+      </div>
+      <div class="form-box anim d3">
+        <h3>Send Us a Message</h3>
+        <form onsubmit="handleSubmit(event)">
+          <div class="fr"><label>Name *</label><input type="text" required></div>
+          <div class="fr"><label>Email *</label><input type="email" required></div>
+          <div class="fr"><label>Organization (optional)</label><input type="text"></div>
+          <div class="fr"><label>Message *</label><textarea required></textarea></div>
+          <button type="submit" class="btn btn-red">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ─── FOOTER ───────────────────── -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <img src="https://iili.io/qJY60a2.jpg" alt="Y4ABFPH Logo">
+      <span class="fn">Youth 4 A Better Future PH</span>
+      <p>Empowering the next generation with the knowledge and confidence to forge brighter futures.</p>
+    </div>
+    <div class="fc">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#goal">Our Goal</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">How We Work</a></li>
+        <li><a href="#involved">Get Involved</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.linkedin.com/company/youth-4-a-better-future-ph/?viewAsMember=true" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/kpsmk_ph" target="_blank">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@kpsmk25" target="_blank">TikTok</a></li>
+        <li><a href="mailto:kpsmk25@gmail.com">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2026 Youth 4 A Better Future PH. All rights reserved.</p>
+    <p>Formally known as Kabataan Para Sa Magandang Kinabukasan</p>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.anim').forEach(el => obs.observe(el));
+
+function handleSubmit(e){
+  e.preventDefault();
+  alert('Thank you for your message! We will get back to you soon.');
+  e.target.reset();
+}
+
+
+</script>
+</body>
+</html>
